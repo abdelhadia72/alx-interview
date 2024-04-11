@@ -1,5 +1,15 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+"""
+    Pascal Triangle
+"""
+
+
 def pascal_triangle(n):
+    """
+      Pascal Triangle
+      Return a list of
+      Integers
+    """
     if n <= 0:
         return []
 
@@ -13,12 +23,3 @@ def pascal_triangle(n):
         triangle.append(new_row)
 
     return triangle
-
-
-# Test
-if __name__ == "__main__":
-    def print_triangle(triangle):
-        for row in triangle:
-            print("[{}]".format(",".join(map(str, row))))
-
-    print_triangle(pascal_triangle(5))
