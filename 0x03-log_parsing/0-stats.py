@@ -34,10 +34,8 @@ class LogParser:
             code = int(match.group(1))
             file_size = int(match.group(2))
 
-            # File size
             self.log["file_size"] += file_size
 
-            # Status code
             if code in self.log["code_frequency"]:
                 self.log["code_frequency"][code] += 1
 
