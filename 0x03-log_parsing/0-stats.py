@@ -5,7 +5,6 @@ Log Parsing
 
 import sys
 import re
-import signal
 
 
 class LogParser:
@@ -57,7 +56,7 @@ class LogParser:
 
     def parse_logs(self):
         """
-        Parse logs from stdin
+            parse_line
         """
         try:
             for line in sys.stdin:
@@ -65,22 +64,10 @@ class LogParser:
                 self.parse_line(line)
                 if self.line_count % 10 == 0:
                     self.output_statistics()
-        except KeyboardInterrupt:
+        finally:
             self.output_statistics()
-
-
-def handle_sigint(sig, frame):
-    """
-    Handle SIGINT (CTRL+C) signal
-    """
-    parser.output_statistics()
-    sys.exit(0)
 
 
 if __name__ == "__main__":
     parser = LogParser()
-    signal.signal(signal.SIGINT, handle_sigint)
-    try:
-        parser.parse_logs()
-    except KeyboardInterrupt:
-        pass
+    parser.parse_logs()
