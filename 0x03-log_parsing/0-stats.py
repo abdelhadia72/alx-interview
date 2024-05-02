@@ -10,7 +10,10 @@ import re
 class LogParser:
     def __init__(self):
         self.regex = re.compile(
-            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" (\d{3}) (\d+)')
+            r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} '
+            r'\d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" '
+            r'(\d{3}) (\d+)'
+        )
         self.line_count = 0
         self.log = {
             "file_size": 0,
