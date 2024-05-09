@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ test a valid utf-8 """
 
+
 def validUTF8(data):
     """ function that valid a utf-8 encoding """
     try:
